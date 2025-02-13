@@ -21,7 +21,7 @@ const PostProduct = () => {
         const productData = { name, price, image, category, gender, description };
 
         try {
-            await axios.post('http://localhost:5001/api/admin/add', productData);
+            await axios.post('https://swhmaah.vercel.app/api/admin/add', productData);
             setMessage('Product added successfully!');
 
             setName('');

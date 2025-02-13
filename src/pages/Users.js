@@ -8,7 +8,7 @@ const Users = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:5001/api/admin/get-users');
+            const response = await axios.get('https://swhmaah.vercel.app/api/admin/get-users');
             setUsers(response.data);
         } catch (error) {
             console.error('Error fetching users:', error);
@@ -30,7 +30,7 @@ const Users = () => {
 
     const deleteUser = async (id) => {
         try {
-            await axios.delete(`http://localhost:5001/api/admin/delete/${id}`);
+            await axios.delete(`https://swhmaah.vercel.app/api/admin/delete/${id}`);
             fetchUsers();
             setMessage('User deleted successfully!');
         } catch (error) {

@@ -8,7 +8,7 @@ const Orders = () => {
 
     const fetchOrders = async () => {
         try {
-            const response = await axios.get('http://localhost:5001/api/admin/get-order');
+            const response = await axios.get('https://swhmaah.vercel.app/api/admin/get-order');
             setOrders(response.data);
         } catch (error) {
             console.error('Error fetching orders:', error);
@@ -32,7 +32,7 @@ const Orders = () => {
         console.log("Deleting order with ID:", id); // Debugging
 
         try {
-            await axios.delete(`http://localhost:5001/api/admin/delete/${id}`);
+            await axios.delete(`https://swhmaah.vercel.app/api/admin/delete/${id}`);
             fetchOrders(); // Refresh the orders after deletion
             setMessage('Order Deleted successfully!');
         } catch (error) {

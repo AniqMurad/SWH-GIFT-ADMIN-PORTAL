@@ -17,7 +17,7 @@
 //   // Fetch products when the component loads
 //   const fetchProducts = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5001/api/user/products');
+//       const response = await axios.get('https://swhmaah.vercel.app/api/user/products');
 //       setProducts(response.data);
 //     } catch (error) {
 //       console.error('Error fetching products:', error);
@@ -27,7 +27,7 @@
 //   // Fetch orders when the component loads
 //   const fetchOrders = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5001/api/admin/get-order');
+//       const response = await axios.get('https://swhmaah.vercel.app/api/admin/get-order');
 //       setOrders(response.data);
 //     } catch (error) {
 //       console.error('Error fetching orders:', error);
@@ -36,7 +36,7 @@
 
 //   const fetchUsers = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5001/api/admin/get-users');
+//       const response = await axios.get('https://swhmaah.vercel.app/api/admin/get-users');
 //       setUsers(response.data);
 //     } catch (error) {
 //       console.error('Error fetching users:', error);
@@ -45,7 +45,7 @@
 
 //   const fetchMessages = async () => {
 //     try {
-//       const response = await axios.get("http://localhost:5001/api/admin/messages");
+//       const response = await axios.get("https://swhmaah.vercel.app/api/admin/messages");
 //       setMessages(response.data);
 //     } catch (error) {
 //       console.error("Error fetching messages:", error);
@@ -80,7 +80,7 @@
 //     const productData = { name, price, image, category, gender, description };
 
 //     try {
-//       await axios.post('http://localhost:5001/api/admin/add', productData);
+//       await axios.post('https://swhmaah.vercel.app/api/admin/add', productData);
 //       setMessage('Product added successfully!');
 
 //       setName('');
@@ -99,7 +99,7 @@
 
 //   const deleteProduct = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5001/api/admin/delete/${id}`);
+//       await axios.delete(`https://swhmaah.vercel.app/api/admin/delete/${id}`);
 //       fetchProducts();
 //       setMessage('Product Deleted successfully!');
 //     } catch (error) {
@@ -112,7 +112,7 @@
 //     console.log("Deleting order with ID:", id); // Debugging
 
 //     try {
-//       await axios.delete(`http://localhost:5001/api/admin/delete/${id}`);
+//       await axios.delete(`https://swhmaah.vercel.app/api/admin/delete/${id}`);
 //       fetchOrders(); // Refresh the orders after deletion
 //       setMessage('Order Deleted successfully!');
 //     } catch (error) {
@@ -123,7 +123,7 @@
 
 //   const deleteUser = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5001/api/admin/delete/${id}`);
+//       await axios.delete(`https://swhmaah.vercel.app/api/admin/delete/${id}`);
 //       fetchUsers();
 //       setMessage('User deleted successfully!');
 //     } catch (error) {
