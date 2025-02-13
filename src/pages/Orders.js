@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Orders = () => {
-
     const [orders, setOrders] = useState([]);
     const [message, setMessage] = useState('');
 
@@ -29,11 +28,11 @@ const Orders = () => {
     }, [message]);
 
     const deleteOrder = async (id) => {
-        console.log("Deleting order with ID:", id); // Debugging
+        console.log("Deleting order with ID:", id);
 
         try {
             await axios.delete(`https://swhmaah.vercel.app/api/admin/delete/${id}`);
-            fetchOrders(); // Refresh the orders after deletion
+            fetchOrders(); // Refresh orders after deletion
             setMessage('Order Deleted successfully!');
         } catch (error) {
             setMessage('Order Not Deleted!');
@@ -73,7 +72,16 @@ const Orders = () => {
                                 <div className="card">
                                     <div className="card-body">
                                         <h5 className="card-title">Order ID: {order._id}</h5>
+
+                                        {/* Show User Details Only if User Exists */}
+                                        {order.user && (
+                                            <>
+                                                <p className="card-text"><strong>Username:</strong> {order.user.name}</p>
+                                                <p className="card-text"><strong>User Email:</strong> {order.user.email}</p>
+                                            </>
+                                        )}
                                         <p className="card-text"><strong>Name:</strong> {order.checkoutInfo.name}</p>
+                                        <p className="card-text"><strong>Checkout Email:</strong> {order.checkoutInfo.email}</p>
                                         <p className="card-text"><strong>Contact Number:</strong> {order.checkoutInfo.contactNumber}</p>
                                         <p className="card-text"><strong>Address:</strong> {order.checkoutInfo.address}, {order.checkoutInfo.city}, {order.checkoutInfo.country}</p>
                                         <p className="card-text"><strong>Order Status:</strong> {order.status}</p>
