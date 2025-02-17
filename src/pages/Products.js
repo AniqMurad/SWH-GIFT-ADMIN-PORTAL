@@ -65,7 +65,7 @@ const Products = () => {
                     products.map((product) => (
                         <div key={product._id} className="col-md-4 mb-4">
                             <div className="card">
-                                <img src={product.image} alt={product.name} className="card-img-top" />
+                                <img src={`https://swhmaah.vercel.app/public/${product.image}`} alt={product.name} className="card-img-top" />
                                 <div className="card-body">
                                     <h5 className="card-title">{product.name}</h5>
                                     <p className="card-text">Price: Rs {product.price}</p>
