@@ -62,52 +62,59 @@ const Orders = () => {
             </div>
 
             <h2 className="my-4">Your Orders</h2>
-            <div className="row">
-                {orders.length > 0 ? (
-                    orders.map((order) => {
-                        const totalPrice = order.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+            {orders.length > 0 ? (
+                <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Username</th>
+                            <th>Checkout Info</th>
+                            <th>Cart Items</th>
+                            <th>Total Price</th>
+                            <th>Order Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders.map((order) => {
+                            const totalPrice = order.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
-                        return (
-                            <div key={order._id} className="col-md-4 mb-4">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">Order ID: {order._id}</h5>
-
-                                        {/* Show User Details Only if User Exists */}
-                                        {order.user && (
-                                            <>
-                                                <p className="card-text"><strong>Username:</strong> {order.user.name}</p>
-                                                <p className="card-text"><strong>User Email:</strong> {order.user.email}</p>
-                                            </>
-                                        )}
-                                        <p className="card-text"><strong>Name:</strong> {order.checkoutInfo.name}</p>
-                                        <p className="card-text"><strong>Checkout Email:</strong> {order.checkoutInfo.email}</p>
-                                        <p className="card-text"><strong>Contact Number:</strong> {order.checkoutInfo.contactNumber}</p>
-                                        <p className="card-text"><strong>Address:</strong> {order.checkoutInfo.address}, {order.checkoutInfo.city}, {order.checkoutInfo.country}</p>
-                                        <p className="card-text"><strong>Order Status:</strong> {order.status}</p>
-
-                                        <h6>Cart Items:</h6>
+                            return (
+                                <tr key={order._id}>
+                                    <td>{order._id}</td>
+                                    <td>{order.user ? order.user.name : 'Guest'}</td>
+                                    <td>
+                                        <p><strong>Name:</strong> {order.checkoutInfo.name}</p>
+                                        <p><strong>Email:</strong> {order.checkoutInfo.email}</p>
+                                        <p><strong>Contact:</strong> {order.checkoutInfo.contactNumber}</p>
+                                        <p><strong>Address:</strong> {order.checkoutInfo.address}, {order.checkoutInfo.city}, {order.checkoutInfo.country}</p>
+                                    </td>
+                                    <td>
                                         {order.cartItems.map((item, index) => (
                                             <div key={index}>
                                                 <p><strong>Product:</strong> {item.name}</p>
+                                                <p><strong>Size:</strong> {item.size}</p>
+                                                <p><strong>Color:</strong> {item.color.colorName}</p>
                                                 <p><strong>Quantity:</strong> {item.quantity}</p>
                                                 <p><strong>Price:</strong> Rs {item.price}</p>
                                             </div>
                                         ))}
-
-                                        <p><strong>Total Price: </strong>Rs {totalPrice}</p>
+                                    </td>
+                                    <td>Rs {totalPrice}</td>
+                                    <td>{order.status}</td>
+                                    <td>
                                         <button className="btn btn-danger" onClick={() => deleteOrder(order._id)}>Delete Order</button>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })
-                ) : (
-                    <p>No orders available.</p>
-                )}
-            </div>
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            ) : (
+                <p>No orders available.</p>
+            )}
         </div>
     );
-}
+};
 
 export default Orders;
