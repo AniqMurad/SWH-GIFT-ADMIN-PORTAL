@@ -81,7 +81,7 @@ const Products = () => {
                                             {product.colors.map((color) => (
                                                 <div key={color._id} className="me-3">
                                                     <img
-                                                        src={`https://swhmaah.vercel.app/${color.image}`}
+                                                        src={`${color.image}`}
                                                         alt={color.colorName}
                                                         style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '50%' }}
                                                     />
