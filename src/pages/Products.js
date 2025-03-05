@@ -77,15 +77,16 @@ const Products = () => {
                                     {/* Render color variations */}
                                     <div className="mb-3">
                                         <strong>Available Colors:</strong>
-                                        <div className="d-flex">
+                                        <div className="d-flex flex-wrap gap-2">
                                             {product.colors.map((color) => (
-                                                <div key={color._id} className="me-3">
+                                                <div key={color._id} className="text-center">
                                                     <img
                                                         src={`${color.image}`}
                                                         alt={color.colorName}
-                                                        style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '50%' }}
+                                                        className="rounded-circle"
+                                                        style={{ width: '50px', height: '50px', objectFit: 'cover'/* , borderRadius: '50%' */ }}
                                                     />
-                                                    <p className="text-center">{color.colorName}</p>
+                                                    <p className="mb-0">{color.colorName}</p>
                                                 </div>
                                             ))}
                                         </div>
