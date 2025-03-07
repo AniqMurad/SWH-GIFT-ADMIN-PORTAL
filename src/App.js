@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       {isAdmin && <Navbar onLogout={() => setIsAdmin(false)} />} {/* Show Navbar only when logged in */}
-      <div className="container mt-4">
+      {/* <div className="container mt-4"> */}
         <Routes>
           <Route path="/admin-login" element={<AdminLogin onLogin={() => setIsAdmin(true)} />} />
           <Route path="/" element={isAdmin ? <h1 className="text-center">Admin Portal</h1> : <Navigate to="/admin-login" />} />
@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/users" element={isAdmin ? <Users /> : <Navigate to="/admin-login" />} />
           <Route path="/messages" element={isAdmin ? <Messages /> : <Navigate to="/admin-login" />} />
         </Routes>
-      </div>
+      {/* </div> */}
     </Router>
   );
 };
