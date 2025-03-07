@@ -1,7 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAdmin");
+    onLogout();
+    navigate("/admin-login");
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -27,6 +35,7 @@ const Navbar = () => {
               <Link className="nav-link" to="/messages">Messages</Link>
             </li>
           </ul>
+          <button className="btn btn-danger ms-auto" onClick={handleLogout}>Logout</button>
         </div>
       </div>
     </nav>
