@@ -8,7 +8,7 @@ const AdminLogin = ({ onLogin }) => {
 
     const handleLogin = () => {
         const adminId = "Aniq";
-        const adminPass = "AMNfina510*";
+        const adminPass = "12345678";
 
         if (id === adminId && password === adminPass) {
             localStorage.setItem("isAdmin", "true");

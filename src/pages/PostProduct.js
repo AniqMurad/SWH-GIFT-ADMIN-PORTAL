@@ -42,7 +42,7 @@ const PostProduct = () => {
         });
 
         try {
-            await axios.post("https://swhmaah.vercel.app/api/admin/add", formData, {
+            await axios.post("http://localhost:5001/api/admin/add", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 

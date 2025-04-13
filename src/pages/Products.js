@@ -8,7 +8,7 @@ const Products = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('https://swhmaah.vercel.app/api/user/products');
+            const response = await axios.get('http://localhost:5001/api/user/products');
             setProducts(response.data);
         } catch (error) {
             console.error('Error fetching products:', error);
@@ -30,7 +30,7 @@ const Products = () => {
 
     const deleteProduct = async (id) => {
         try {
-            await axios.delete(`https://swhmaah.vercel.app/api/admin/delete/${id}`);
+            await axios.delete(`http://localhost:5001/api/admin/delete/${id}`);
             fetchProducts();
             setMessage('Product Deleted successfully!');
         } catch (error) {

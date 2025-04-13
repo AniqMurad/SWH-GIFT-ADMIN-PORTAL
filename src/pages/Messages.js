@@ -8,7 +8,7 @@ const Messages = () => {
 
     const fetchMessages = async () => {
         try {
-            const response = await axios.get("https://swhmaah.vercel.app/api/admin/messages");
+            const response = await axios.get("http://localhost:5001/api/admin/messages");
             setMessages(response.data);
         } catch (error) {
             console.error("Error fetching messages:", error);
